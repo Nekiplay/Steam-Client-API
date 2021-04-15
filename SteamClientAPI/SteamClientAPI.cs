@@ -46,6 +46,18 @@ namespace SteamClientAPI
 
                                         IntPtr addres = Utils.PointRead(Steam, mod.BaseAddress, new[] { 0x001F3F64, 0x1B4 });
                                         byte[] done = process.Memory.Read(addres, 70);
+                                        List<byte> hash = new List<byte>();
+                                        foreach (byte number in done)
+                                        {
+                                            if (number == 0)
+                                            {
+                                                hash.Add(number);
+                                            }
+                                        }
+                                        if (done.Length == 70 && hash.Count == 68)
+                                        {
+                                            return -1;
+                                        }
                                         string donest2 = Encoding.Unicode.GetString(done.ToArray());
                                         string donest3 = Regex.Match(donest2, "^(.*) ").Groups[1].Value;
                                         return double.Parse(donest3);
@@ -89,6 +101,18 @@ namespace SteamClientAPI
 
                                         IntPtr addres = Utils.PointRead(Steam, mod.BaseAddress, new[] { 0x001F3F64, 0x1B4 });
                                         byte[] done = process.Memory.Read(addres, 70);
+                                        List<byte> hash = new List<byte>();
+                                        foreach (byte number in done)
+                                        {
+                                            if (number == 0)
+                                            {
+                                                hash.Add(number);
+                                            }
+                                        }
+                                        if (done.Length == 70 && hash.Count == 68)
+                                        {
+                                            return "";
+                                        }
                                         string donest2 = Encoding.Unicode.GetString(done.ToArray());
                                         string a = string.Join("", Regex.Matches(donest2, "[а-я]", RegexOptions.IgnoreCase).Cast<object>());
                                         if (string.IsNullOrEmpty(a))
