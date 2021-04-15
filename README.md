@@ -8,7 +8,7 @@ API for Desktop Steam
 **Example:**
 ```C#
 SteamClientAPI.SteamClientAPI.Profile profile = new SteamClientAPI.SteamClientAPI.Profile();
-Console.WriteLine("Баланс: " + profile.Balance + " " + profile.Currency);
+Console.WriteLine("Balance: " + profile.Balance + " " + profile.Currency);
 ```
 
 **Example with exceptions:**
@@ -16,14 +16,14 @@ Console.WriteLine("Баланс: " + profile.Balance + " " + profile.Currency);
 SteamClientAPI.SteamClientAPI.Profile profile = new SteamClientAPI.SteamClientAPI.Profile();
 try
 {
-        Console.WriteLine("Баланс: " + profile.Balance + " " + profile.Currency);
+        Console.WriteLine("Balance: " + profile.Balance + " " + profile.Currency);
 }
 catch (SteamClientAPI.Exceptions.SteamMemoryRead)
 {
-        Console.WriteLine("Ошибка чтения памяти");
+        Console.WriteLine("Memory read error");
 }
 catch (SteamClientAPI.Exceptions.SteamNotRunning)
 {
-        Console.WriteLine("Steam не запущен");
+        Console.WriteLine("Steam is not running");
 }
 ```
