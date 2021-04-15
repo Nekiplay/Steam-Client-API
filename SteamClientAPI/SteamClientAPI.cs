@@ -88,18 +88,6 @@ namespace SteamClientAPI
                                     {
                                         IntPtr addres = Utils.PointRead(Steam, mod.BaseAddress, new[] { 0x00BD0E4C, 0x70C, 0x198, 0x14C, 0x37C, 0x458, 0x1D0, 0x90 });
                                         byte[] done = process.Memory.Read(addres, 70);
-                                        List<byte> hash = new List<byte>();
-                                        foreach (byte number in done)
-                                        {
-                                            if (number == 0)
-                                            {
-                                                hash.Add(number);
-                                            }
-                                        }
-                                        if (done.Length == 70 && hash.Count == 68)
-                                        {
-                                            return "";
-                                        }
                                         string donest2 = Encoding.Unicode.GetString(done.ToArray());
                                         string a = string.Join("", Regex.Matches(donest2, "[а-я]", RegexOptions.IgnoreCase).Cast<object>());
                                         if (string.IsNullOrEmpty(a))
