@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SteamClientAPI.Exceptions
 {
-    public class Steam : System.Exception
+    public class SteamNotRunning : System.Exception
     {
         public string SteamExeption { get; set; }
 
-        public Steam(string inputExceptionType)
+        public SteamNotRunning(string inputExceptionType)
         {
             SteamExeption = inputExceptionType;
         }

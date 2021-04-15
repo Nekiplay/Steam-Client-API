@@ -54,17 +54,17 @@ namespace SteamClientAPI
                             }
                             catch
                             {
-                                throw new Exceptions.Steam("Error when trying to get a balance.");
+                                throw new Exceptions.SteamMemoryRead("Error when trying to get a balance.");
                             }
                         }
                         else
                         {
-                            throw new Exceptions.Steam("Process connection error.");
+                            throw new Exceptions.SteamNotRunning("Process connection error.");
                         }
                     }
                     else
                     {
-                        throw new Exceptions.Steam("Steam is not running.");
+                        throw new Exceptions.SteamNotRunning("Steam is not running.");
                     }
                     return -1;
                 }
@@ -101,17 +101,17 @@ namespace SteamClientAPI
                             }
                             catch
                             {
-                                throw new Exceptions.Steam("Error when trying to get a currency.");
+                                throw new Exceptions.SteamMemoryRead("Error when trying to get a currency.");
                             }
                         }
                         else
                         {
-                            throw new Exceptions.Steam("Process connection error.");
+                            throw new Exceptions.SteamNotRunning("Process connection error.");
                         }
                     }
                     else
                     {
-                        throw new Exceptions.Steam("Steam is not running.");
+                        throw new Exceptions.SteamNotRunning("Steam is not running.");
                     }
                     return "";
                 }
