@@ -41,23 +41,11 @@ namespace SteamClientAPI
                             {
                                 foreach (Process.NET.Modules.RemoteModule mod in process.ModuleFactory.RemoteModules.ToList())
                                 {
-                                    if (mod.Name == "steam.exe")
+                                    if (mod.Name == "steamui.dll")
                                     {
 
-                                        IntPtr addres = Utils.PointRead(Steam, mod.BaseAddress, new[] { 0x001F3F64, 0x1B4 });
+                                        IntPtr addres = Utils.PointRead(Steam, mod.BaseAddress, new[] { 0x00BD0E4C, 0x70C, 0x198, 0x14C, 0x37C, 0x458, 0x1D0, 0x90 });
                                         byte[] done = process.Memory.Read(addres, 70);
-                                        List<byte> hash = new List<byte>();
-                                        foreach (byte number in done)
-                                        {
-                                            if (number == 0)
-                                            {
-                                                hash.Add(number);
-                                            }
-                                        }
-                                        if (done.Length == 70 && hash.Count == 68)
-                                        {
-                                            return 0;
-                                        }
                                         string donest2 = Encoding.Unicode.GetString(done.ToArray());
                                         string donest3 = Regex.Match(donest2, "^(.*) ").Groups[1].Value;
                                         return double.Parse(donest3);
@@ -96,10 +84,9 @@ namespace SteamClientAPI
                             {
                                 foreach (Process.NET.Modules.RemoteModule mod in process.ModuleFactory.RemoteModules.ToList())
                                 {
-                                    if (mod.Name == "steam.exe")
+                                    if (mod.Name == "steamui.dll")
                                     {
-
-                                        IntPtr addres = Utils.PointRead(Steam, mod.BaseAddress, new[] { 0x001F3F64, 0x1B4 });
+                                        IntPtr addres = Utils.PointRead(Steam, mod.BaseAddress, new[] { 0x00BD0E4C, 0x70C, 0x198, 0x14C, 0x37C, 0x458, 0x1D0, 0x90 });
                                         byte[] done = process.Memory.Read(addres, 70);
                                         List<byte> hash = new List<byte>();
                                         foreach (byte number in done)
