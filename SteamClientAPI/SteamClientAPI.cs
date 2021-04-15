@@ -43,8 +43,8 @@ namespace SteamClientAPI
                                 {
                                     if (mod.Name == "steamui.dll")
                                     {
-
-                                        IntPtr addres = Utils.PointRead(Steam, mod.BaseAddress, new[] { 0x00BD0E4C, 0x70C, 0x198, 0x14C, 0x37C, 0x458, 0x1D0, 0x90 });
+                                        IntPtr addres = Utils.PointRead(Steam, mod.BaseAddress, new[] { 0x00B621B0, 0x7C, 0x24, 0x130, 0x98, 0x1D0, 0x90 });
+                                        Console.WriteLine(addres.ToString("X"));
                                         byte[] done = process.Memory.Read(addres, 70);
                                         string donest2 = Encoding.Unicode.GetString(done.ToArray());
                                         string donest3 = Regex.Match(donest2, "^(.*) ").Groups[1].Value;
@@ -86,7 +86,7 @@ namespace SteamClientAPI
                                 {
                                     if (mod.Name == "steamui.dll")
                                     {
-                                        IntPtr addres = Utils.PointRead(Steam, mod.BaseAddress, new[] { 0x00BD0E4C, 0x70C, 0x198, 0x14C, 0x37C, 0x458, 0x1D0, 0x90 });
+                                        IntPtr addres = Utils.PointRead(Steam, mod.BaseAddress, new[] { 0x00B621B0, 0x7C, 0x24, 0x130, 0x98, 0x1D0, 0x90 });
                                         byte[] done = process.Memory.Read(addres, 70);
                                         string donest2 = Encoding.Unicode.GetString(done.ToArray());
                                         string a = string.Join("", Regex.Matches(donest2, "[а-я]", RegexOptions.IgnoreCase).Cast<object>());
