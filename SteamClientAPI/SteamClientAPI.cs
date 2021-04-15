@@ -65,13 +65,13 @@ namespace SteamClientAPI
                             }
                             catch
                             {
-                                return -1;
+                                throw new Exceptions.Steam("Error when trying to get a balance.");
                             }
                         }
                     }
                     else
                     {
-                        return -1;
+                        throw new Exceptions.Steam("Steam is not running.");
                     }
                     return -1;
                 }
