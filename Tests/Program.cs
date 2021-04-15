@@ -11,7 +11,15 @@ namespace Tests
         static void Main(string[] args)
         {
             SteamClientAPI.SteamClientAPI.Profile profile = new SteamClientAPI.SteamClientAPI.Profile();
-            Console.WriteLine("Баланс: " + profile.Balance + " " + profile.Currency);
+            try
+            {
+                Console.WriteLine("Баланс: " + profile.Balance + " " + profile.Currency);
+            }
+            catch (SteamClientAPI.Exceptions.Steam ex)
+            {
+                Console.WriteLine(ex.SteamExeption);
+            }
+
             Console.ReadKey();
         }
     }
