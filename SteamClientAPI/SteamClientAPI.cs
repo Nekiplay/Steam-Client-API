@@ -68,6 +68,10 @@ namespace SteamClientAPI
                                 throw new Exceptions.Steam("Error when trying to get a balance.");
                             }
                         }
+                        else
+                        {
+                            throw new Exceptions.Steam("Process connection error.");
+                        }
                     }
                     else
                     {
