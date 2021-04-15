@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace SteamClientAPI
 {
@@ -45,21 +46,9 @@ namespace SteamClientAPI
 
                                         IntPtr addres = Utils.PointRead(Steam, mod.BaseAddress, new[] { 0x001F3F64, 0x1B4 });
                                         byte[] done = process.Memory.Read(addres, 70);
-                                        List<byte> donev2 = new List<byte>(); ;
-                                        for (int i = 0; i < done.Length; i++)
-                                        {
-                                            if (done[i] == 0 && done[i + 1] == 0 && done[i + 2] == 0)
-                                            {
-                                                donev2.Add(done[i]);
-                                                break;
-                                            }
-                                            else
-                                            {
-                                                donev2.Add(done[i]);
-                                            }
-                                        }
-                                        string donest = Encoding.Unicode.GetString(donev2.ToArray());
-                                        return double.Parse(donest);
+                                        string donest2 = Encoding.Unicode.GetString(done.ToArray());
+                                        string donest3 = Regex.Match(donest2, "(.*) ").Groups[1].Value;
+                                        return double.Parse(donest3);
                                     }
                                 }
                             }
