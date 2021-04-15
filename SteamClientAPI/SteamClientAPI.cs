@@ -56,7 +56,7 @@ namespace SteamClientAPI
                                         }
                                         if (done.Length == 70 && hash.Count == 68)
                                         {
-                                            return -1;
+                                            return 0;
                                         }
                                         string donest2 = Encoding.Unicode.GetString(done.ToArray());
                                         string donest3 = Regex.Match(donest2, "^(.*) ").Groups[1].Value;
