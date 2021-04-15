@@ -1,6 +1,8 @@
 # Steam-Client-API
 API for Desktop Steam
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/dd1774b107464d3e9f4805df8ecdf135)](https://www.codacy.com/gh/Nekiplay/Steam-Client-API/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Nekiplay/Steam-Client-API&amp;utm_campaign=Badge_Grade)
+
 ## Using Steam Client API
 
 **Example:**
