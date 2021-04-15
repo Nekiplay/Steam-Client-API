@@ -14,10 +14,10 @@ Console.WriteLine("Баланс: " + profile.Balance + " " + profile.Currency);
 SteamClientAPI.SteamClientAPI.Profile profile = new SteamClientAPI.SteamClientAPI.Profile();
 try
 {
-  Console.WriteLine("Баланс: " + profile.Balance + " " + profile.Currency);
+    Console.WriteLine("Баланс: " + profile.Balance + " " + profile.Currency);
 }
 catch (SteamClientAPI.Exceptions.Steam ex)
 {
-  Console.WriteLine(ex.SteamExeption);
+    Console.WriteLine(ex.SteamExeption);
 }
 ```
